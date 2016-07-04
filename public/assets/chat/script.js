@@ -1,4 +1,4 @@
-var socket = io("http://localhost:8080");
+var socket = io.connect(window.location.origin);
 
 socket.on('message', function(data){
     console.log("New message!");
