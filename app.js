@@ -16,6 +16,12 @@ io.on("connection", function(client){
 		client.emit("message", data);
 		client.broadcast.emit("message", data);
 	});
+
+    client.on('drawing-mousemoving', function (data) {
+        if(data.drawing)
+            console.log("user drawing");
+        client.broadcast.emit('drawing-moving', data);
+    });
 });
 
 http.listen(8080, function(){
